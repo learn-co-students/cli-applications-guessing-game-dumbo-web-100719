@@ -15,18 +15,25 @@ end
 
 def compare_numbers(num)
   if random_num == input_response
-    puts "You guessed the correct number!"
-binding.pry
-  elsif random_num !== input_response
-    puts "Sorry! The computer guessed #{num}"
+    puts "Sorry! The computer guessed #{num}."
+  elsif random_num == input_response
+    puts "Sorry! The computer guessed #{num}."
+
+
   elsif input_response == "exit"
     puts "Goodbye!"
   end
 end
 
 def run_guessing_game
-  output_prompt
-  random_number
-  input_response
-  compare_numbers
+  random_num = rand(6) + 1
+  puts "Guess a number between 1 and 6:"
+  input = gets.chomp
+  if random_num.to_s == input
+    puts 'You guessed the correct number!'
+  elsif input == "exit"
+    puts "Goodbye!"
+  else
+    puts "Sorry! The computer guessed #{random_num}."
+  end
 end
